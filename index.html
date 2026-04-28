@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propuesta Web · Marion Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #FAF8F5;
+      --warm-white: #F5F1EC;
+      --charcoal: #2A2622;
+      --mid: #6B6460;
+      --light: #B8B0A8;
+      --accent: #C4A882;
+      --accent-dark: #A08660;
+      --rose: #D4B8A8;
+      --divider: #E8E2DA;
+      --green: #7A9A7A;
+      --red-soft: #C47A6A;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--charcoal);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container-wide {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    section+section {
+      border-top: 1px solid var(--divider);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+      background: var(--charcoal);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 110%, rgba(196, 168, 130, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      color: var(--light);
+      margin-bottom: 40px;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+
+    .hero-meta span strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 2px;
+      font-size: 11px;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 8px;
+    }
+
+    h2 em {
+      font-style: italic;
+    }
+
+    .section-intro {
+      font-size: 15px;
+      color: var(--mid);
+      max-width: 640px;
+      margin-bottom: 48px;
+      line-height: 1.75;
+    }
+
+    /* ── EXECUTIVE SUMMARY ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--divider);
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 32px;
+    }
+
+    .summary-cell {
+      background: var(--cream);
+      padding: 28px 32px;
+    }
+
+    .summary-cell h3 {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .summary-cell p,
+    .summary-cell ul {
+      font-size: 14px;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    .summary-cell ul {
+      list-style: none;
+    }
+
+    .summary-cell ul li::before {
+      content: '—  ';
+      color: var(--accent);
+    }
+
+    /* ── AESTHETIC ANALYSIS ── */
+    .aesthetic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .aesthetic-card {
+      background: var(--warm-white);
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      padding: 28px 24px;
+    }
+
+    .aesthetic-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .aesthetic-card p {
+      font-size: 13.5px;
+      color: var(--mid);
+      line-height: 1.65;
+    }
+
+    .palette-swatches {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0;
+      flex-wrap: wrap;
+    }
+
+    .swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      position: relative;
+    }
+
+    .swatch::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 9px;
+      color: var(--mid);
+      white-space: nowrap;
+    }
+
+    .font-specimen {
+      margin: 8px 0;
+      padding: 10px 0;
+      border-top: 1px solid var(--divider);
+    }
+
+    .font-specimen .display {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
+
+    .font-specimen .label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--light);
+      text-transform: uppercase;
+    }
+
+    /* ── IMPROVEMENT AUDIT ── */
+    .audit-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .audit-cat {
+      border: 1px solid var(--divider);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .audit-cat-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 28px;
+      background: var(--charcoal);
+      color: #fff;
+    }
+
+    .audit-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(196, 168, 130, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    .audit-cat-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      flex: 1;
+    }
+
+    .audit-cat-header .badge {
+      font-size: 11px;
+      background: rgba(196, 168, 130, 0.2);
+      color: var(--accent);
+      border: 1px solid rgba(196, 168, 130, 0.3);
+      padding: 3px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.08em;
+    }
+
+    .audit-items {
+      padding: 0;
+    }
+
+    .audit-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .audit-item:last-child {
+      border-bottom: none;
+    }
+
+    .audit-problem,
+    .audit-solution {
+      padding: 18px 24px;
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
+    .audit-problem {
+      background: #FDF9F7;
+      border-right: 1px solid var(--divider);
+    }
+
+    .audit-solution {
+      background: #F8FCF8;
+    }
+
+    .audit-problem strong,
+    .audit-solution strong {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .audit-problem strong {
+      color: var(--red-soft);
+    }
+
+    .audit-solution strong {
+      color: var(--green);
+    }
+
+    .audit-problem p,
+    .audit-solution p {
+      color: var(--mid);
+    }
+
+    /* ── BUDGET ── */
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    .budget-table thead tr {
+      background: var(--charcoal);
+      color: #fff;
+    }
+
+    .budget-table thead th {
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .budget-table tbody tr {
+      border-bottom: 1px solid var(--divider);
+      transition: background 0.15s;
+    }
+
+    .budget-table tbody tr:hover {
+      background: var(--warm-white);
+    }
+
+    .budget-table tbody td {
+      padding: 14px 20px;
+      color: var(--mid);
+    }
+
+    .budget-table tbody td:first-child {
+      color: var(--charcoal);
+      font-weight: 400;
+    }
+
+    .budget-table tbody td:last-child {
+      text-align: right;
+      font-weight: 500;
+      color: var(--charcoal);
+    }
+
+    .budget-table tfoot tr {
+      border-top: 2px solid var(--charcoal);
+      background: var(--warm-white);
+    }
+
+    .budget-table tfoot td {
+      padding: 18px 20px;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--charcoal);
+    }
+
+    .budget-table tfoot td:last-child {
+      text-align: right;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--accent-dark);
+    }
+
+    .budget-note {
+      margin-top: 20px;
+      font-size: 12.5px;
+      color: var(--light);
+      border-left: 2px solid var(--divider);
+      padding-left: 16px;
+      line-height: 1.6;
+    }
+
+    .cat-row-label {
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--warm-white) !important;
+      padding: 10px 20px !important;
+      font-weight: 500 !important;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    .cat-row-label td {
+      color: var(--accent) !important;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    /* ── NEXT STEPS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--divider);
+      border: 1px solid var(--divider);
+      margin-top: 40px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .step-card {
+      background: var(--cream);
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .step-card h3 {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 12.5px;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      color: var(--light);
+      padding: 48px 0;
+      text-align: center;
+    }
+
+    footer .logo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    footer .tagline {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    footer p {
+      font-size: 12.5px;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    .steps-grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 56px 0;
+      }
+
+      .summary-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .aesthetic-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .audit-item {
+        grid-template-columns: 1fr;
+      }
+
+      .audit-problem {
+        border-right: none;
+        border-bottom: 1px solid var(--divider);
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .hero-meta {
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .aesthetic-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .budget-table {
+        font-size: 12px;
+      }
+
+      .budget-table thead th,
+      .budget-table tbody td {
+        padding: 10px 12px;
+      }
+    }
+
+    /* ── LANG HIDDEN ── */
+
+
+    body.en
+  </style>
+</head>
+
+<body>
+
+  </div>
+
+  <!-- ════════════════════════════════════════ HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero-eyebrow">Propuesta de Mejora Web · Web Improvement Proposal</span>
+      <h1>Marion <em>Photography</em></h1>
+
+      <p class="hero-sub">Auditoría completa · Análisis estético · Presupuesto detallado</p>
+
+      <div class="hero-meta">
+        <span><strong>Sitio Web</strong>marion.photography</span>
+        <span><strong>Plataforma</strong>WordPress + Elementor</span>
+        <span><strong>Fecha</strong>Abril 2026</span>
+        <span><strong>Vigencia</strong>30 <span>días</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ EXECUTIVE SUMMARY -->
+  <section>
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">01 — Resumen Ejecutivo</span>
+
+        <h2>Un sitio con gran <em>potencial</em>, con oportunidades claras de mejora</h2>
+
+        <p class="section-intro">Marion Photography cuenta con una base sólida: contenido de calidad, testimonios reales
+          y posicionamiento geográfico bien definido. Sin embargo, existen diferencias críticas entre la versión en
+          inglés y español, así como brechas en accesibilidad, velocidad, estructura SEO y experiencia móvil que están
+          limitando su alcance y conversión.</p>
+
+      </div>
+
+      <div class="summary-grid reveal">
+        <div class="summary-cell">
+          <h3>Lo que funciona bien</h3>
+
+          <ul>
+            <li>Testimonios auténticos y detallados</li>
+            <li>URLs amigables y bilingüismo implementado</li>
+            <li>FAQ estructurado con preguntas relevantes</li>
+            <li>Navegación clara con secciones definidas</li>
+            <li>Presencia en directorios fotográficos de calidad</li>
+          </ul>
+        </div>
+        <div class="summary-cell">
+          <h3>Áreas críticas a resolver</h3>
+
+          <ul>
+            <li>La versión ES carece del hero con CTAs de la versión EN</li>
+            <li>Imágenes sin alt text descriptivo al cargar</li>
+            <li>Título de la página de inicio en ES es genérico ("Inicio")</li>
+            <li>Formulario de contacto sin etiquetas visibles (labels)</li>
+            <li>Sin datos estructurados (schema.org) para fotógrafo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ BILINGUAL ANALYSIS -->
+  <section>
+    <div class="container-wide">
+      <div class="reveal">
+        <span class="section-label">02 — Análisis de Funcionalidad Bilingüe</span>
+
+        <h2>Dos versiones del sitio, <em>experiencias muy distintas</em></h2>
+
+        <p class="section-intro">Marion Photography atiende principalmente a parejas de EUA y Canadá, por lo que el
+          bilingüismo es un activo estratégico clave. Sin embargo, la versión en español está significativamente menos
+          desarrollada que la versión en inglés, lo que afecta tanto la experiencia del usuario hispanohablante como el
+          posicionamiento SEO internacional.</p>
+
+      </div>
+
+      <div class="audit-categories">
+        <div class="audit-cat reveal">
+          <div class="audit-cat-header">
+            <div class="audit-icon">🌐</div>
+            <h3>Paridad de Contenido entre Idiomas</h3>
+
+            <span class="badge">4 hallazgos</span>
+
+          </div>
+          <div class="audit-items">
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Hallazgo</strong>
+                <p>La versión en inglés tiene un bloque hero con propuesta de valor clara ("Natural, emotional
+                  photography"), subtítulo y dos CTAs ("Check Availability" / "View Portfolio"). La versión en español
+                  carece completamente de este bloque: el usuario llega y no tiene ninguna acción obvia a realizar.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Impacto</strong>
+                <p>Alto. El bloque hero es el primer punto de conversión del sitio. Su ausencia en español reduce
+                  drásticamente la tasa de conversión de usuarios hispanohablantes y envía señales de menor calidad a
+                  Google para esa versión.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Hallazgo</strong>
+                <p>La versión en inglés incluye la sección "Sesiones de Compromiso" (Engagements) en el menú de
+                  navegación principal. Esta sección no existe ni en el menú ni en las páginas disponibles de la versión
+                  en español.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Impacto</strong>
+                <p>Medio. Parejas hispanohablantes interesadas en sesiones de compromiso no encuentran esa oferta de
+                  servicio, perdiendo oportunidades de contratación para ese segmento.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Hallazgo</strong>
+                <p>El título (title tag) de la homepage en español es "Inicio - Marion Photography" — completamente
+                  genérico y sin keywords de posicionamiento. El de la versión en inglés es "Puerto Vallarta Wedding
+                  Photographer | Destination Weddings", que es específico y optimizado.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Impacto</strong>
+                <p>Alto para SEO. Google utiliza el title tag como señal principal de relevancia. Un title genérico hace
+                  que la página española compita en desventaja en búsquedas como "fotógrafo de bodas Puerto Vallarta".
+                </p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Hallazgo</strong>
+                <p>No se detectan etiquetas hreflang que comuniquen a Google la relación entre ambas versiones del
+                  sitio. Esto puede provocar que Google indexe solo una versión, ignore la otra, o las trate como
+                  contenido duplicado internacional.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Impacto</strong>
+                <p>Alto para SEO internacional. Sin hreflang, el posicionamiento bilingüe del sitio es ineficiente: se
+                  desperdicia la autoridad de dominio entre versiones y se pierde visibilidad en mercados
+                  hispanohablantes que buscan este servicio.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ AESTHETIC ANALYSIS -->
+  <section>
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">03 — Análisis Estético Visual</span>
+
+        <h2>Estética actual: elegante pero <em>inconsistente</em></h2>
+
+        <p class="section-intro">El sitio proyecta una imagen refinada y de lujo alineada con la fotografía de bodas de
+          destino, pero la experiencia visual pierde coherencia entre la versión en inglés y español, y entre secciones
+          dentro de la misma página.</p>
+
+      </div>
+
+      <div class="aesthetic-grid">
+        <div class="aesthetic-card reveal">
+          <h3>🎨 Paleta de Color</h3>
+
+          <div class="palette-swatches">
+            <div class="swatch" style="background:#1A1A1A" data-name="Fondo"></div>
+            <div class="swatch" style="background:#FFFFFF" data-name="Texto"></div>
+            <div class="swatch" style="background:#D4C5B0" data-name="Acento"></div>
+            <div class="swatch" style="background:#F5F3EF" data-name="Crema"></div>
+            <div class="swatch" style="background:#FF8009" data-name="Naranja"></div>
+            <div class="swatch" style="background:#2E3920" data-name="Verde"></div>
+          </div>
+          <br /><br />
+          <p>El esquema negro/blanco/dorado claro transmite lujo y sofisticación. Los colores <strong>#FF8009</strong>
+            (naranja vibrante) y <strong>#2E3920</strong> (verde bosque oscuro) aparecen en el sitio pero sin un rol
+            definido en la jerarquía visual: el naranja puede saturar si se usa de acento, y el verde sugiere naturaleza
+            —coherente con bodas en jungle o playa—, pero ambos deben integrarse con criterio.
+            <strong>Recomendamos</strong> formalizar una paleta con roles claros: principal, acento, neutros y de apoyo,
+            definida en variables CSS globales.
+          </p>
+
+        </div>
+
+        <div class="aesthetic-card reveal">
+          <h3>✍️ Tipografía</h3>
+
+          <div class="font-specimen">
+            <div class="display">Marion Photography</div>
+            <div class="label">Display (serif elegante)</div>
+          </div>
+          <p>El sitio usa un serif fino en el logo y sans-serif en el cuerpo. No hay jerarquía tipográfica clara: los
+            H1, H2 y H3 tienen tamaños similares en móvil. <strong>Propuesta:</strong> escalar correctamente con clamp()
+            y definir estilos globales en el tema hijo de Elementor.</p>
+
+        </div>
+
+        <div class="aesthetic-card reveal">
+          <h3>📸 Estilo Fotográfico</h3>
+
+          <p>Las imágenes del portafolio muestran un estilo documental y emotivo con tonos cálidos y luz natural. Sin
+            embargo, las miniaturas del sitio no muestran este estilo con consistencia: las proporciones y el recorte
+            varían mucho entre secciones. <strong>Recomendamos</strong> estandarizar relaciones de aspecto y utilizar
+            WebP con lazy loading.</p>
+
+        </div>
+
+        <div class="aesthetic-card reveal">
+          <h3>🧭 Navegación y Layout</h3>
+
+          <p>El menú tiene 9 elementos incluyendo los selectores de idioma, lo cual lo satura. La versión en español
+            omite "Sesiones de Compromiso" presente en la versión en inglés. El layout de la homepage en español carece
+            de los bloques de propuesta de valor que sí tiene la versión en inglés.</p>
+
+        </div>
+
+        <div class="aesthetic-card reveal">
+          <h3>📱 Experiencia Móvil</h3>
+
+          <p>Elementor genera estilos inline que dificultan la personalización responsiva. Los menús hamburguesa en
+            WordPress/Elementor frecuentemente tienen problemas de z-index y touch targets pequeños. No se detecta un
+            menú adaptado para móvil con áreas táctiles mínimas de 44×44px.</p>
+
+        </div>
+
+        <div class="aesthetic-card reveal">
+          <h3>⚡ Rendimiento Visual</h3>
+
+          <p>Las imágenes del hero se sirven como SVG placeholder durante la carga (lazy load), lo que genera un CLS
+            (Cumulative Layout Shift) que penaliza el SEO en Core Web Vitals. Se recomienda usar
+            <code>fetchpriority="high"</code> en imágenes above-the-fold y placeholder de color sólido.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ AUDIT -->
+  <section>
+    <div class="container-wide">
+      <div class="reveal">
+        <span class="section-label">04 — Auditoría de Mejoras</span>
+
+        <h2>Problemas detectados y <em>soluciones propuestas</em></h2>
+
+        <p class="section-intro">Cada mejora está categorizada por área. La columna izquierda muestra el problema
+          actual; la derecha, la solución que implementaremos.</p>
+
+      </div>
+
+      <div class="audit-categories">
+
+        <!-- DISEÑO -->
+        <div class="audit-cat reveal">
+          <div class="audit-cat-header">
+            <div class="audit-icon">✦</div>
+            <h3>Diseño Visual</h3>
+
+            <span class="badge">5 mejoras</span>
+
+          </div>
+          <div class="audit-items">
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>La versión en español no tiene el bloque de hero con CTAs "Verificar disponibilidad" y "Ver
+                  portafolio" que sí existe en la versión en inglés. Los visitantes hispanohablantes no tienen una
+                  acción clara al llegar al sitio.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Replicar y adaptar el bloque hero en la versión española, con CTAs localizados, asegurando paridad de
+                  contenido entre ambas versiones.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>El botón "Learn More" en la sección "Hola soy Marion" no describe a dónde lleva al usuario. Es un
+                  texto de enlace ambiguo que perjudica accesibilidad y SEO.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Cambiar el texto del CTA a algo descriptivo como "Conoce a Marion" o "Sobre el Fotógrafo",
+                  consistente en ambos idiomas.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>Los logos de Fearless Photographers, MyWed y WeddingWire se cargan como SVG placeholder sin
+                  renderizarse correctamente, perdiendo credibilidad visual en la sección de confianza.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Configurar las imágenes de los badges como eager load (no lazy) y convertirlas a WebP con dimensiones
+                  fijas para evitar el layout shift.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>El menú de navegación tiene 9 ítems incluyendo los toggles de idioma, lo que genera saturación visual
+                  y dificulta la toma de decisiones del usuario.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Agrupar secciones secundarias en un menú desplegable, mover el selector de idioma a un elemento
+                  aislado con icono de globo, y añadir un CTA destacado tipo botón en la nav.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>No existe un footer con información estructurada: sin dirección, redes sociales, mapa del sitio ni
+                  enlaces a páginas legales (privacidad, cookies). El footer actual es prácticamente vacío.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Diseñar un footer completo con logo, datos de contacto, redes sociales, enlaces secundarios del sitio
+                  y aviso de privacidad.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- UX/UI -->
+        <div class="audit-cat reveal">
+          <div class="audit-cat-header">
+            <div class="audit-icon">◎</div>
+            <h3>UX / UI</h3>
+            <span class="badge">5 mejoras</span>
+
+          </div>
+          <div class="audit-items">
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>El formulario de contacto no tiene etiquetas (labels) visibles; los campos solo muestran placeholder
+                  text que desaparece al escribir, dificultando la usabilidad especialmente en formularios largos.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Agregar labels HTML visibles o floating labels a todos los campos del formulario, mejorando
+                  accesibilidad y UX simultáneamente.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>No hay confirmación visual al enviar el formulario de contacto. El usuario no sabe si su mensaje fue
+                  enviado correctamente, lo que puede generar desconfianza y envíos duplicados.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Configurar mensajes de éxito/error claros y visibles tras el envío del formulario, incluyendo
+                  redirección a una página de "Gracias" que también permita trackear conversiones en Google Analytics.
+                </p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>No existe un header sticky (fijo al hacer scroll). El usuario pierde acceso al menú al bajar la
+                  página, especialmente en páginas largas como la home.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Implementar un header sticky compacto que aparezca al hacer scroll down, con efecto de transición
+                  suave y fondo semi-transparente con blur.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>La sección de portafolio/galerías no tiene lightbox: al hacer clic en una imagen se abre en una
+                  página nueva o no pasa nada, interrumpiendo el flujo de navegación.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Integrar un lightbox accesible (compatible con teclado y screen readers) para las galerías de
+                  imágenes del portafolio.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>El menú de navegación en español omite la sección "Sesiones de Compromiso" que sí existe en la
+                  versión en inglés. Esto genera una arquitectura de información asimétrica.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Auditar y sincronizar la arquitectura de ambas versiones del sitio, asegurando que todas las páginas
+                  clave existan y estén enlazadas en ambos idiomas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCESIBILIDAD -->
+        <div class="audit-cat reveal">
+          <div class="audit-cat-header">
+            <div class="audit-icon">♿</div>
+            <h3>Accesibilidad (WCAG 2.1)</h3>
+
+            <span class="badge">4 mejoras</span>
+
+          </div>
+          <div class="audit-items">
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>Las imágenes del sitio usan alt text genérico ("wedding photographer puerto vallarta", "beach
+                  wedding") o no tienen alt text descriptivo real al cargarse mediante lazy load con SVG placeholder.
+                </p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Auditar y reescribir todos los alt texts para ser descriptivos y útiles para screen readers,
+                  diferenciando entre imágenes decorativas (alt="") y contenido visual significativo.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>El contraste entre el texto blanco y el fondo semi-transparente del navbar en algunas secciones puede
+                  ser insuficiente (ratio menor a 4.5:1 requerido por WCAG AA).</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Verificar contrastes con herramienta automatizada (Axe, Lighthouse) y ajustar colores del navbar,
+                  botones y texto secundario para cumplir WCAG 2.1 nivel AA.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>No hay un enlace "Saltar al contenido" (skip-to-content) para usuarios de teclado o lectores de
+                  pantalla que necesitan evitar la navegación repetitiva.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Agregar un enlace "Saltar al contenido" visible solo al recibir foco, enlazando al elemento main del
+                  contenido principal.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>El FAQ usa acordeones, pero no es claro si están implementados con los atributos ARIA correctos
+                  (aria-expanded, aria-controls) para lectores de pantalla.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Revisar e implementar el patrón de acordeón accesible con roles y atributos ARIA correctos, y
+                  asegurar que sean navegables con teclado.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEO -->
+        <div class="audit-cat reveal">
+          <div class="audit-cat-header">
+            <div class="audit-icon">◈</div>
+            <h3>SEO</h3>
+            <span class="badge">5 mejoras</span>
+
+          </div>
+          <div class="audit-items">
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>El title tag de la homepage en español dice "Inicio - Marion Photography" — extremadamente genérico,
+                  sin keyword de posicionamiento. La versión en inglés tiene "Puerto Vallarta Wedding Photographer |
+                  Destination Weddings".</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Optimizar el title tag de la versión española a algo como "Fotógrafo de Bodas en Puerto Vallarta |
+                  Bodas de Destino en México - Marion Photography".</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>No se detectan etiquetas hreflang correctas que indiquen a Google la relación entre la versión en
+                  inglés y español del sitio, lo que puede causar problemas de contenido duplicado internacional.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Implementar etiquetas hreflang en el head de todas las páginas, especificando correctamente es-MX
+                  para la versión española y en (o en-US) para la inglesa.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>El sitio no tiene datos estructurados schema.org del tipo "Photographer" o "LocalBusiness", perdiendo
+                  la oportunidad de aparecer en rich snippets de Google.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Implementar Schema.org tipo Photographer con datos de nombre, ubicación, área de servicio, rating,
+                  imagen y precio aproximado. También añadir FAQ Schema en la sección de preguntas frecuentes.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>Las imágenes de alto tráfico (hero, portafolio) se sirven probablemente en formato JPEG/PNG sin
+                  optimización para Core Web Vitals, impactando el LCP (Largest Contentful Paint).</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Convertir todas las imágenes a WebP, implementar srcset para imágenes responsivas, añadir
+                  fetchpriority="high" a la imagen hero y configurar caché del servidor correctamente.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>Los textos de la homepage contienen repetición excesiva de la keyword "Puerto Vallarta wedding
+                  photographer" que puede ser leída como keyword stuffing por Google y penalizar el posicionamiento.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Revisar la densidad de keywords y diversificar con términos semánticamente relacionados (fotógrafo de
+                  bodas México, fotografía de destino, bodas en la playa) manteniendo naturalidad en el texto.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESPONSIVE -->
+        <div class="audit-cat reveal">
+          <div class="audit-cat-header">
+            <div class="audit-icon">⊡</div>
+            <h3>Diseño Responsivo</h3>
+
+            <span class="badge">4 mejoras</span>
+
+          </div>
+          <div class="audit-items">
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>Elementor genera estilos CSS inline por cada elemento, lo que resulta en un CSS inflado que dificulta
+                  los overrides responsivos y aumenta el peso de la página innecesariamente.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Consolidar estilos en un archivo CSS personalizado en el tema hijo, reducir el uso de estilos inline
+                  de Elementor y activar la opción de "Improved CSS Loading" en Elementor Pro.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>Los tamaños tipográficos no utilizan unidades relativas (rem, vw + clamp()) sino px fijos, lo que
+                  impide que el texto escale correctamente en pantallas muy pequeñas o muy grandes.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Implementar un sistema tipográfico fluido con clamp() para H1-H4 y body text, definido en variables
+                  CSS globales del tema.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>Los touch targets (botones, enlaces del menú, ítems del FAQ) probablemente no cumplen el mínimo de
+                  44×44px recomendado por Apple y Google para interfaces táctiles.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Ajustar padding y min-height de todos los elementos interactivos en móvil para garantizar áreas
+                  táctiles adecuadas sin afectar el diseño visual en desktop.</p>
+              </div>
+            </div>
+            <div class="audit-item">
+              <div class="audit-problem"><strong>⚑ Problema</strong>
+                <p>Las galerías de imágenes en móvil probablemente no aprovechan correctamente el espacio horizontal
+                  disponible o muestran columnas innecesarias que reducen el tamaño de cada imagen.</p>
+              </div>
+              <div class="audit-solution"><strong>✓ Solución</strong>
+                <p>Revisar y optimizar los breakpoints de las galerías en Elementor: una columna en móvil, dos en
+                  tablet, tres o más en desktop, con scroll horizontal como alternativa para galerías panorámicas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ BUDGET -->
+  <section>
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">05 — Presupuesto</span>
+        <h2>Inversión para llevar tu sitio al <em>siguiente nivel</em></h2>
+        <p class="section-intro">Los precios están en pesos mexicanos (MXN) y representan el costo total de
+          implementación por área. El proyecto puede realizarse en fases si se prefiere distribuir la inversión.</p>
+      </div>
+
+      <table class="budget-table reveal">
+        <thead>
+          <tr>
+            <th>Área</th>
+            <th>Intervenciones incluidas</th>
+            <th style="text-align:right">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>🌐 Sitio Bilingüe</strong></td>
+            <td>Paridad ES/EN del sitio, sincronización de arquitectura, selectores de idioma e implementación de
+              hreflang</td>
+            <td>$10,000 MXN</td>
+          </tr>
+          <tr>
+            <td><strong>✦ Diseño Visual</strong></td>
+            <td>Rediseño de navegación, footer completo, corrección de badges de confianza</td>
+            <td>$7,500 MXN</td>
+          </tr>
+          <tr>
+            <td><strong>◎ UX / UI</strong></td>
+            <td>Formulario con labels y confirmación de envío, header sticky, lightbox de galería accesible</td>
+            <td>$11,000 MXN</td>
+          </tr>
+          <tr>
+            <td><strong>♿ Accesibilidad</strong></td>
+            <td>Auditoría WCAG 2.1 completa, reescritura de alt texts, revisión de contrastes, skip navigation, roles
+              ARIA en acordeones</td>
+            <td>$5,500 MXN</td>
+          </tr>
+          <tr>
+            <td><strong>◈ SEO</strong></td>
+            <td>Optimización de title tags y metas, Schema.org Photographer + FAQ, conversión de imágenes a WebP y
+              srcset</td>
+            <td>$9,000 MXN</td>
+          </tr>
+          <tr>
+            <td><strong>⊡ Responsivo</strong></td>
+            <td>Sistema tipográfico fluido con clamp(), optimización de touch targets, corrección de breakpoints en
+              galerías, reducción de CSS inline de Elementor</td>
+            <td>$12,000 MXN</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="2"><strong>Total estimado del proyecto</strong></td>
+            <td>$55,000 MXN</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <p class="budget-note reveal">
+        * Los precios no incluyen IVA. El proyecto puede dividirse en fases para distribuir la inversión. Los precios no
+        incluyen licencias de plugins premium si fueran necesarias (estimado adicional: $1,000–2,500 MXN/año). Propuesta
+        válida por 30 días desde la fecha de emisión.
+      </p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ NEXT STEPS -->
+  <section>
+    <div class="container">
+      <div class="reveal">
+        <span class="section-label">06 — Próximos Pasos</span>
+
+        <h2>¿Cómo <em>empezamos</em>?</h2>
+
+        <p class="section-intro">Una vez aceptada la propuesta, el proceso es simple y transparente en cada etapa.</p>
+
+      </div>
+
+      <div class="steps-grid reveal" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h3>Aprobación</h3>
+
+          <p>Confirmas la propuesta y realizamos una videollamada de onboarding para alinear prioridades y accesos al
+            sitio.</p>
+
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h3>Revisión</h3>
+
+          <p>Te presentamos los cambios para que los revises y apruebes antes de publicar. Incluimos 2 rondas de
+            revisión sin costo adicional.</p>
+
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h3>Publicación</h3>
+
+          <p>Publicamos los cambios en tu sitio, realizamos pruebas finales en múltiples dispositivos y quedamos
+            disponibles para cualquier ajuste post-lanzamiento.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════ FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="logo-text">Marion Photography</div>
+      <div class="tagline">Propuesta de Mejora Web · Abril 2026</div>
+
+      <p>¿Preguntas sobre esta propuesta? Escríbenos a <a
+          href="mailto:aldomapler@gmail.com">aldomapler@gmail.com</a><br />o por WhatsApp al <a
+          href="https://wa.me/525535666232">55 3566 6232</a></p>
+
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
